@@ -31,7 +31,7 @@ const renderApplicationData = (data) => {
 
         const statusCell = document.createElement("td");
         statusCell.textContent = application.status;
-        statusCell.classList.add(`${application.status === 'Passed' ? 'passed': 'failed'}`)
+        statusCell.classList.add(`${application.status === 'Passed' ? 'passed' : 'failed'}`)
 
 
         // Append cells to the row
@@ -66,6 +66,5 @@ const getApplicationData = async () => {
         console.log(`Error Fetching data: ${e.message}`);
     }
 }
-
 
 getApplicationData();

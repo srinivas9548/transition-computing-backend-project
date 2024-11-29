@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 
 const dbPath = path.join(__dirname, "database.db");
 
@@ -113,7 +113,7 @@ app.get('/htmlPage', (request, response) => {
 
 app.get("/", (request, response) => {
     try {
-        response.send("Welcome! This is a Transition Company Assignment backend domain.Please access data by using '/checklist' endpoint.");
+        response.send("Welcome! This is a Transition Company Assignment backend domain.Please access data by using '/checklist' endpoint and access frontend page by using '/htmlPage' endpoint.");
     } catch (e) {
         console.log(e.message);
         response.status(500).json({ error: 'Internal Server Error' });
