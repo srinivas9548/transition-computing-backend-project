@@ -12,6 +12,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static('public'));
+
 const dbPath = path.join(__dirname, "database.db");
 
 let db = null;
@@ -103,6 +105,10 @@ app.get("/checklist", async (request, response) => {
         response.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+app.get('/htmlPage', (request, response) => {
+    response.sendFile(path.join(__dirname, 'public', 'app.html'));
+});
 
 
 app.get("/", (request, response) => {
