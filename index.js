@@ -95,7 +95,7 @@ app.get("/checklist", async (request, response) => {
         const results = await fetchedDataAndEvaluate();
 
         if (results.length > 0) {
-            response.status(200).json({ data: results });
+            response.status(200).json({ results });
         } else {
             response.status(400).json({ message: "No applications found or unable to fetch data." })
         }
