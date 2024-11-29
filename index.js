@@ -77,7 +77,7 @@ const fetchedDataAndEvaluate = async () => {
                 }
             });
 
-            console.log(results);
+            return results;
         } else {
             console.log("API did not return an array of applications");
         }
