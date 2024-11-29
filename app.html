@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Evaluation Dashboard</title>
+    <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Checklist Evaluation Dashboard</h1>
+        </header>
+
+        <main>
+            <table id="applicationsTable">
+                <thead>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>isValuationFeePaid</th>
+                        <th>isUkResident</th>
+                        <th>riskRating</th>
+                        <th>LTV Below 60%</th>
+                        <th>Overall Status</th>
+                    </tr>
+                </thead>
+                <tbody id="applicationsBody">
+                    <!-- Data rows will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </main>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
