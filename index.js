@@ -80,13 +80,36 @@ const fetchedDataAndEvaluate = async () => {
             return results;
         } else {
             console.log("API did not return an array of applications");
+            return [];
         }
 
     } catch (e) {
-        console.log(`Fetching API Error: ${e.message}`);
+        console.log(`Unable to Fetching API: ${e.message}`);
     }
 }
 
-fetchedDataAndEvaluate();
+app.get("/checklist", async (request, response) => {
+    try {
+        const results = await fetchedDataAndEvaluate();
+
+        if (results.length > 0) {
+            response.status(200).json({ data: results });
+        } else {
+            response.status(400).json({ message: "No applications found or unable to fetch data." })
+        }
+    } catch (e) {
+        response.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+
+app.get("/", (request, response) => {
+    try {
+        response.send("Welcome! This is a Transition Company Assignment backend domain.Please access data by using '/checklist' endpoint.");
+    } catch (e) {
+        console.log(e.message);
+        response.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 module.exports = app;
